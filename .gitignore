@@ -27,4 +27,4 @@ replay_pid*
 *.db
 
 # idea file
-.idea/
+.idea
