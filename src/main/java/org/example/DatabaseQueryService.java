@@ -22,7 +22,7 @@ public class DatabaseQueryService {
     }
 
     public  List<LongestProject> findLongestProject() {
-        String script = Database.getDatabase().readScript(new File("src/main/resources/SQLScripts/print_project_prices.sql"));
+        String script = Database.getDatabase().readScript(new File("src/main/resources/SQLScripts/find_longest_project.sql"));
         List<LongestProject> rs = new ArrayList<>();
 
         try {
@@ -38,7 +38,7 @@ public class DatabaseQueryService {
         return rs;
     }
     public List<MaxProjectsClient> findMaxProjectsClient() {
-        String script = Database.getDatabase().readScript(new File("src/main/resources/SQLScripts/print_project_prices.sql"));
+        String script = Database.getDatabase().readScript(new File("src/main/resources/SQLScripts/find_max_projects_client.sql"));
         List<MaxProjectsClient> rs = new ArrayList<>();
 
         try {
@@ -74,7 +74,7 @@ public class DatabaseQueryService {
         return rs;
     }
     public List<EldestYoungestWorkers> findYoungestEldestWorkers() {
-        String script = Database.getDatabase().readScript(new File("src/main/resources/SQLScripts/print_project_prices.sql"));
+        String script = Database.getDatabase().readScript(new File("src/main/resources/SQLScripts/find_youngest_eldest_workers.sql"));
         List<EldestYoungestWorkers> rs = new ArrayList<>();
 
         try {
