@@ -1,5 +1,8 @@
 package org.example;
 
+import org.flywaydb.core.Flyway;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,22 +12,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 
+import static org.example.ClientServiceTest.Test;
+
 public class DatabaseInitService {
+
+
     public static void main(String[] args) {
-        File sql = new File("src/main/resources/SQLScripts/init_db.sql");
+        Flyway flyway = Flyway.configure()
+                .dataSource("jdbc:h2:mem:test.db", "SA", "")
+                .locations("filesystem:src/main/resources/SQLScripts")
+                .load();
+        flyway.migrate();
 
-        String script = Database.getDatabase().readScript(sql);
-
-        try(Connection connection = Database.getDatabase().getConnection();) {
-            Statement statement = connection.createStatement();
-
-            boolean result = statement.execute(script);
-            System.out.println(result);
-
-            statement.close();
-        }
-        catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

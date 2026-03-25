@@ -6,4 +6,9 @@ public abstract class PersonTable extends Table {
    public String getName(){
        return name;
    }
+
+    @Override
+    public String toString() {
+        return getId() + " " + getName();
+    }
 }
