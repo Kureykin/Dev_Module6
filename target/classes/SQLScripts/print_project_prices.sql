@@ -1,6 +1,0 @@
-select PROJECT.id, 
-datediff('month', START_DATE, FINISH_DATE) * sum(WORKER.SALARY) as PRICE  
-from PROJECT_WORKER 
-join PROJECT on PROJECT_ID = PROJECT.ID 
-join WORKER on WORKER_ID = WORKER.ID
-group by PROJECT.id;
