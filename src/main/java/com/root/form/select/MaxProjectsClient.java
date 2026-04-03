@@ -1,4 +1,4 @@
-package com.root.form;
+package com.root.form.select;
 
 public class MaxProjectsClient {
     private String name;

@@ -1,4 +1,4 @@
-package com.root.form;
+package com.root.form.select;
 
 public class MaxSalaryWorker {
     private String name;
